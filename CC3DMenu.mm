@@ -232,10 +232,10 @@
 	glTranslatef(position.x, position.y, position.z);
     
     
-    //if(selected)
-    //    glBindTexture(GL_TEXTURE_2D, boxTopSelected.texture.name);
-    //else
-      //  glBindTexture(GL_TEXTURE_2D, boxTop.texture.name);
+    if(selected)
+        glBindTexture(GL_TEXTURE_2D, boxTopSelected.texture.name);
+    else
+        glBindTexture(GL_TEXTURE_2D, boxTop.texture.name);
         
     
     glTexCoordPointer(2, GL_FLOAT, 0,  textureCoordinates);
