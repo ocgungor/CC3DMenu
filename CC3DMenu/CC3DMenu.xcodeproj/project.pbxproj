@@ -137,7 +137,7 @@
 		561CDC08173B8E4F0090F86D /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 561CDBF9173B8E4F0090F86D /* frame.png */; };
 		561CDC09173B8E4F0090F86D /* frame2.png in Resources */ = {isa = PBXBuildFile; fileRef = 561CDBFA173B8E4F0090F86D /* frame2.png */; };
 		561CDC0A173B8E4F0090F86D /* metal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 561CDBFB173B8E4F0090F86D /* metal.jpg */; };
-		561CDC10173B8E700090F86D /* Box.mm in Sources */ = {isa = PBXBuildFile; fileRef = 561CDC0C173B8E700090F86D /* Box.mm */; };
+		561CDC10173B8E700090F86D /* CC3DMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 561CDC0C173B8E700090F86D /* CC3DMenu.mm */; };
 		561CDC11173B8E700090F86D /* Glu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 561CDC0E173B8E700090F86D /* Glu.mm */; };
 /* End PBXBuildFile section */
 
@@ -392,8 +392,8 @@
 		561CDBF9173B8E4F0090F86D /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		561CDBFA173B8E4F0090F86D /* frame2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame2.png; sourceTree = "<group>"; };
 		561CDBFB173B8E4F0090F86D /* metal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = metal.jpg; sourceTree = "<group>"; };
-		561CDC0B173B8E700090F86D /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Box.h; path = ../Box.h; sourceTree = "<group>"; };
-		561CDC0C173B8E700090F86D /* Box.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Box.mm; path = ../Box.mm; sourceTree = "<group>"; };
+		561CDC0B173B8E700090F86D /* CC3DMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CC3DMenu.h; path = ../CC3DMenu.h; sourceTree = "<group>"; };
+		561CDC0C173B8E700090F86D /* CC3DMenu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CC3DMenu.mm; path = ../CC3DMenu.mm; sourceTree = "<group>"; };
 		561CDC0D173B8E700090F86D /* Glu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Glu.h; path = ../Glu.h; sourceTree = "<group>"; };
 		561CDC0E173B8E700090F86D /* Glu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Glu.mm; path = ../Glu.mm; sourceTree = "<group>"; };
 		561CDC0F173B8E700090F86D /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGLCommon.h; path = ../OpenGLCommon.h; sourceTree = "<group>"; };
@@ -421,8 +421,8 @@
 		561CDA70173B8DD70090F86D = {
 			isa = PBXGroup;
 			children = (
-				561CDC0B173B8E700090F86D /* Box.h */,
-				561CDC0C173B8E700090F86D /* Box.mm */,
+				561CDC0B173B8E700090F86D /* CC3DMenu.h */,
+				561CDC0C173B8E700090F86D /* CC3DMenu.mm */,
 				561CDC0D173B8E700090F86D /* Glu.h */,
 				561CDC0E173B8E700090F86D /* Glu.mm */,
 				561CDC0F173B8E700090F86D /* OpenGLCommon.h */,
@@ -997,7 +997,7 @@
 				561CDBE0173B8DD90090F86D /* AppDelegate.m in Sources */,
 				561CDBE3173B8DD90090F86D /* RootViewController.m in Sources */,
 				561CDBE6173B8DD90090F86D /* HelloWorldLayer.m in Sources */,
-				561CDC10173B8E700090F86D /* Box.mm in Sources */,
+				561CDC10173B8E700090F86D /* CC3DMenu.mm in Sources */,
 				561CDC11173B8E700090F86D /* Glu.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1092,6 +1092,7 @@
 				561CDBEC173B8DD90090F86D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,9 +1,9 @@
 //
 //  Glu.h
-//  bbb
+//  CC3DMenu
 //
 //  Created by Oguzhan Gungor on 8/05/13.
-//  Copyright 2013 __MyCompanyName__. All rights reserved.
+//  Copyright 2013 Aslan-Apps. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
