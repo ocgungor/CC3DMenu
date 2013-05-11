@@ -62,9 +62,9 @@
 	//
 	//
 	EAGLView *glView = [EAGLView viewWithFrame:[window bounds]
-								   pixelFormat:kEAGLColorFormatRGB565	// kEAGLColorFormatRGBA8
-								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
-						];
+                                   pixelFormat:kEAGLColorFormatRGBA8//kEAGLColorFormatRGB565
+                                   depthFormat:0
+                           ];
 	
 	// attach the openglView to the director
 	[director setOpenGLView:glView];
@@ -96,7 +96,7 @@
 	[viewController setView:glView];
 	
 	// make the View Controller a child of the main window
-	[window addSubview: viewController.view];
+	[window setRootViewController: viewController];
 	
 	[window makeKeyAndVisible];
 	
