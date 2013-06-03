@@ -15,61 +15,97 @@
 
 +(CCScene *) scene
 {
-	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
-	// 'layer' is an autorelease object.
 	HelloWorldLayer *layer = [HelloWorldLayer node];
 	
-	// add layer as a child to scene
 	[scene addChild: layer];
 	
-	// return the scene
 	return scene;
 }
 
-// on "init" you need to initialize your instance
 -(id) init
 {
-	// always call "super" init
-	// Apple recommends to re-assign "self" with the "super" return value
+
 	if( (self=[super init])) {
 		
-        set = [[[NSMutableSet alloc] init] autorelease];
+        set = [[[[NSMutableArray alloc] init] retain] autorelease];
         
         
         Vector3D boxSize = vec(0.8f,0.8f,1.6f);
         Vector3D camera = vec(0.0f, 0.0f, 6.0f);
         
         
-        
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-2.25f, 1.5f, 0.0f) andCamera:camera andImageName:@"1"]];
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-0.75f, 1.5f, 0.0f) andCamera:camera andImageName:@"1"]];
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 0.75f, 1.5f, 0.0f) andCamera:camera andImageName:@"1"]];
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 2.25f, 1.5f, 0.0f) andCamera:camera andImageName:@"1"]];
 
-        
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-2.25f, 0.0f, 0.0f) andCamera:camera andImageName:@"1"]];
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-0.75f, 0.0f, 0.0f) andCamera:camera andImageName:@"1"]];
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 0.75f, 0.0f, 0.0f) andCamera:camera andImageName:@"1"]];
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 2.25f, 0.0f, 0.0f) andCamera:camera andImageName:@"1"]];
+//        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-2.25f, 1.5f, 0.0f) andCamera:camera andImageName:@"1"]];
+//        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-0.75f, 1.5f, 0.0f) andCamera:camera andImageName:@"2"]];
+//        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 0.75f, 1.5f, 0.0f) andCamera:camera andImageName:@"3"]];
+//        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 2.25f, 1.5f, 0.0f) andCamera:camera andImageName:@"4"]];
 
-        
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-2.25f, -1.5f, 0.0f)  andCamera:camera andImageName:@"1"]];
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-0.75f, -1.5f, 0.0f) andCamera:camera andImageName:@"1"]];
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 0.75f, -1.5f, 0.0f) andCamera:camera andImageName:@"1"]];
-        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 2.25f, -1.5f, 0.0f) andCamera:camera andImageName:@"1"]];
+
+        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-2.25f, 0.0f, 0.0f) andCamera:camera andImageName:@"5"]];
+        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-0.75f, 0.0f, 0.0f) andCamera:camera andImageName:@"6"]];
+        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 0.75f, 0.0f, 0.0f) andCamera:camera andImageName:@"7"]];
+        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 2.25f, 0.0f, 0.0f) andCamera:camera andImageName:@"8"]];
+
+
+        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-2.25f, -1.5f, 0.0f) andCamera:camera andImageName:@"1"]];
+        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec(-0.75f, -1.5f, 0.0f) andCamera:camera andImageName:@"2"]];
+        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 0.75f, -1.5f, 0.0f) andCamera:camera andImageName:@"3"]];
+        [set addObject: [CC3DMenu threeDMenuWithSize:boxSize andPosition:vec( 2.25f, -1.5f, 0.0f) andCamera:camera andImageName:@"4"]];
 
   
+        //arr = [set allObjects];
 
         for (id val in set) {
               [self addChild: (CC3DMenu *) val];
         }
+        NSLog(@"count: %d", set.count);
+        
+        isAccelerometerEnabled_ = YES;
         
 	}
 	return self;
 }
 
+
+- (void) tick:(ccTime) dt;
+{
+    /*
+     NSEnumerator *it;
+     Box* box;// = [[[Box alloc] init] autorelease];
+     
+     while (set = [it nextObject]) {
+     box = (Box*) it;
+     
+     if ([box getSelected]) {
+     GLfloat height = [box getHeight];
+     if (height > .1) {
+     [box setHeight:height - .1f];
+     }
+     }
+     }
+     */
+}
+
+- (void) setCameraAngle: (Vector3D) angle;
+{
+    cameraAngle = angle;
+}
+
+
+- (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
+{
+    float x = pow(acceleration.x * 2.0, 3);
+    float y = pow(acceleration.y * 1.5, 2);
+    
+    
+    if(acceleration.y < 0) y *= -1;
+
+    for (id val in set) {
+        [(CC3DMenu*) val setCamera:vec(y, x, 6.0f)];
+    }  
+}
 
 
 - (void) dealloc

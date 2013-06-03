@@ -14,8 +14,9 @@
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer
 {
-    NSMutableSet *set;
+    NSMutableArray *set;
     Vector3D cameraAngle;
+    NSArray * arr;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

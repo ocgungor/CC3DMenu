@@ -24,18 +24,20 @@
 }
 
 
--  initBoxWithSizeAndPosition: (Vector3D) asize withPos: (Vector3D) aposition withCam: (Vector3D) acamera withImageName: (NSString*) name
+- (CC3DMenu*) initBoxWithSizeAndPosition: (Vector3D) asize withPos: (Vector3D) aposition withCam: (Vector3D) acamera withImageName: (NSString*) name
 {
     if( (self=[super init])) {
+        
         [self setPosition:aposition];
         [self setSize:asize];
         [self setCamera:acamera];
         
-        [self setSelectedValue:false];
+        [self setSelectedValue:NO];
         
         [self setTop: [self createTopTextureWithRed:.0 andGreen:.4 andBlue:.9 andImageName:name] ];
-        [self setTopSelected:  [self createTopTextureWithRed:1.0 andGreen:1.0 andBlue:.2 andImageName:name] ];
+        [self setTopSelected:[self createTopTextureWithRed:1.0 andGreen:1.0 andBlue:.2 andImageName:name] ];
         [self setSide:[self createSideTexture]];
+
     }
     return self;
 }
@@ -49,7 +51,13 @@
     [renderTexture beginWithClear:r g:g b:b a:1.0];
     
     NSString *file = [NSString stringWithFormat:@"%@.png", image];
-        
+    
+    
+//    CCSprite *pattern = [CCSprite spriteWithFile:@"metal.png"];
+//    [pattern setBlendFunc:(ccBlendFunc){GL_ONE, GL_ONE_MINUS_SRC_ALPHA}];
+//    [pattern setPosition:ccp(textureSize/2, textureSize/2)];
+//    [pattern visit];
+    
     CCSprite *levelImage = [CCSprite spriteWithFile:file];
     [levelImage setBlendFunc:(ccBlendFunc){GL_ONE, GL_ONE_MINUS_SRC_ALPHA}];
     [levelImage setPosition:ccp(textureSize/2, textureSize/2)];
@@ -59,6 +67,7 @@
     [frame setBlendFunc:(ccBlendFunc){GL_ONE, GL_ONE_MINUS_SRC_ALPHA}];
     [frame setPosition:ccp(textureSize/2, textureSize/2)];
     [frame visit];
+    
     
     [renderTexture end];
 
@@ -73,7 +82,7 @@
     CCRenderTexture *renderTexture = [CCRenderTexture renderTextureWithWidth:textureSize height:textureSize];
     [renderTexture beginWithClear:.6 g:.6 b:.6 a:1.0];
 
-    CCSprite *pattern = [CCSprite spriteWithFile:@"metal.jpg"];
+    CCSprite *pattern = [CCSprite spriteWithFile:@"metal.png"];
     [pattern setBlendFunc:(ccBlendFunc){GL_ONE, GL_ONE_MINUS_SRC_ALPHA}];
     [pattern setPosition:ccp(textureSize/2, textureSize/2)];
     [pattern visit];
@@ -87,17 +96,25 @@
 - (void) setTop:(CCTexture2D*)texture;
 {
     boxTop = [CCSprite spriteWithTexture:texture];
+    
+//    boxTop.position  = ccp(-100, -100);
+//    [self addChild:boxTop z:-50];
 
 }
 
 - (void) setSide:(CCTexture2D*)texture;
 {
-    boxSide = [CCSprite spriteWithTexture:texture];
+    boxSide = [[CCSprite spriteWithTexture:texture] retain];
+    boxSide.position  = ccp(-100, -100);
+    [self addChild:boxSide z:-50];
+    
 }
 
 - (void) setTopSelected:(CCTexture2D*)texture;
 {
-    boxTopSelected = [CCSprite spriteWithTexture:texture];
+    boxTopSelected = [[CCSprite spriteWithTexture:texture] retain];
+    boxTopSelected.position  = ccp(-100, -100);
+    [self addChild:boxTopSelected z:-50];
 }
 
 - (void) setPosition:(Vector3D)vector;
@@ -232,11 +249,11 @@
 	glTranslatef(position.x, position.y, position.z);
     
     
-    if(selected)
+   if(selected)
         glBindTexture(GL_TEXTURE_2D, boxTopSelected.texture.name);
-    else
+   else
         glBindTexture(GL_TEXTURE_2D, boxTop.texture.name);
-        
+    
     
     glTexCoordPointer(2, GL_FLOAT, 0,  textureCoordinates);
     

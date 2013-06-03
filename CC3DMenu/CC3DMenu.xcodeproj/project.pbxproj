@@ -139,6 +139,7 @@
 		561CDC0A173B8E4F0090F86D /* metal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 561CDBFB173B8E4F0090F86D /* metal.jpg */; };
 		561CDC10173B8E700090F86D /* CC3DMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 561CDC0C173B8E700090F86D /* CC3DMenu.mm */; };
 		561CDC11173B8E700090F86D /* Glu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 561CDC0E173B8E700090F86D /* Glu.mm */; };
+		567D1F6B173CD1F300BC604E /* metal.png in Resources */ = {isa = PBXBuildFile; fileRef = 567D1F6A173CD1F300BC604E /* metal.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -397,6 +398,7 @@
 		561CDC0D173B8E700090F86D /* Glu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Glu.h; path = ../Glu.h; sourceTree = "<group>"; };
 		561CDC0E173B8E700090F86D /* Glu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Glu.mm; path = ../Glu.mm; sourceTree = "<group>"; };
 		561CDC0F173B8E700090F86D /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGLCommon.h; path = ../OpenGLCommon.h; sourceTree = "<group>"; };
+		567D1F6A173CD1F300BC604E /* metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -489,6 +491,7 @@
 				561CDBF8173B8E4F0090F86D /* crate.jpg */,
 				561CDBF9173B8E4F0090F86D /* frame.png */,
 				561CDBFA173B8E4F0090F86D /* frame2.png */,
+				567D1F6A173CD1F300BC604E /* metal.png */,
 				561CDBFB173B8E4F0090F86D /* metal.jpg */,
 				561CDA8E173B8DD70090F86D /* Default.png */,
 				561CDA90173B8DD70090F86D /* fps_images.png */,
@@ -889,6 +892,7 @@
 				561CDC08173B8E4F0090F86D /* frame.png in Resources */,
 				561CDC09173B8E4F0090F86D /* frame2.png in Resources */,
 				561CDC0A173B8E4F0090F86D /* metal.jpg in Resources */,
+				567D1F6B173CD1F300BC604E /* metal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1045,6 +1049,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Oguzhan Gungor (7LZK4K8N3P)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1053,6 +1059,7 @@
 				INFOPLIST_FILE = CC3DMenu/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "176FEED0-A33F-4674-AC6F-621D17FEF6E1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1061,6 +1068,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CC3DMenu/Prefix.pch;
