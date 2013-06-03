@@ -23,6 +23,7 @@
     CGPoint screenTopLeft;
     CGPoint screenBottomRight;
     BOOL selected;
+    
 
 }
 
